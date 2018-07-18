@@ -1,0 +1,28 @@
+﻿@model CollageMaker.Models.CollageModel
+
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+
+
+<h2>Сollage</h2>
+<h2><p class="text-info">@ViewBag.UserName</p></h2>
+<button class="btn btn-success" type="submit" onclick="location.href='@Url.Action("Download", "Home")'">Download collage</button>
+<br />
+<hr />
+<div style="font-size:0;width:@(Model.BrPointer*50)px">
+    @for (int i = 0; i < Model.Urls.Count(); i++)
+    {
+        if (i % Model.BrPointer == 0)
+        {
+            <br />
+        }
+        <img src="@Model.Urls[i]" style="width:50px;height:50px;" />
+    }
+</div>
+
+
+
